@@ -21,14 +21,14 @@ install_programming_lang_packages() {
 }
 
 install_programming_lang_packages_opensuse() {
-    sudo zypper install -y gcc-c++ make cmake ruby java python3 python2-prolog kotlin
+    sudo zypper install -y gcc-c++ make cmake ruby java python3 prolog kotlin
 }
 
 install_programming_lang_packages_arch() {
-    sudo pacman -S --noconfirm gcc make cmake ruby jdk8-openjdk jre8-openjdk python python2 swi-prolog kotlin
+    sudo pacman -S gcc make cmake ruby jdk-openjdk jre-openjdk python python3 swi-prolog kotlin
 }
 
 install_programming_lang_packages_debian() {
     sudo apt-get update
-    sudo apt-get install -y g++ make cmake ruby-full openjdk-11-jdk openjdk-11-jre python3 python-prolog golang-kotlin
+    sudo apt-get install -y g++ make cmake ruby-full default-jre default-jdk python3 swi-prolog kotlin
 }
