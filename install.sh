@@ -64,26 +64,76 @@ confirm_installation() {
         exit 1
     fi
 }
+
+# Check for command-line arguments
+if [ $# -eq 0 ]; then
+    usage
+fi
+
+# Variables for options
+INSTALL_PROGRAMMING=false
+INSTALL_GAMING=false
+INSTALL_MISC=false
+
+detect_distribution
+
+# Process command-line arguments
+while [[ $# -gt 0 ]]; do
+    key="$1"
+    case $key in
+        +a|--add-all)
+            INSTALL_PROGRAMMING=true
+            INSTALL_GAMING=true
+            ;;
+        -a|--remove-all)
+            INSTALL_PROGRAMMING=false
+            INSTALL_GAMING=false
+            ;;
+        +p|--add-programming)
+            INSTALL_PROGRAMMING=true
+            ;;
+        -p|--remove-programming)
+            INSTALL_PROGRAMMING=false
+            ;;
+        +g|--add-gaming)
+            INSTALL_GAMING=true
+            ;;
+        -g|--remove-gaming)
+            INSTALL_GAMING=false
             ;;
         -m|--add-miscellaneous)
             INSTALL_MISC=true
             ;;
-        arch)
-            echo "Detected Arch Linux distribution."
+        +m|--remove-miscellaneous)
+            INSTALL_MISC=false
             ;;
-        debian)
+        -h|--help)
+            usage
             ;;
         *)
-            echo "Unsupported distribution detected."
-            exit 1
+            echo "Invalid option: $key"
+            usage
             ;;
     esac
-else
-    echo "Unable to detect the system's distribution."
-    exit 1
+    shift
+done
+
 confirm_installation
 
+# Install or remove selected categories of tools
+if [ "$INSTALL_PROGRAMMING" = true ]; then
+    echo "Installing programming language-related packages on $DISTRIBUTION..."
+    install_programming_lang_packages $DISTRIBUTION
 fi
 
-echo "Programming language-related packages and gaming tools have been installed successfully."
+if [ "$INSTALL_GAMING" = true ]; then
+    echo "Installing gaming tools (Steam, Lutris, Wine) on $DISTRIBUTION..."
+    install_gaming_tools $DISTRIBUTION
+fi
 
+if [ "$INSTALL_MISC" = true ]; then
+    echo "Installing miscellaneous tools (tree, neofetch) on $DISTRIBUTION..."
+    install_miscellaneous_tools $DISTRIBUTION
+fi
+
+echo "Installation complete."
