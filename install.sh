@@ -3,6 +3,7 @@
 # Import the functions from separate files
 source programming/install_programming_lang_packages.sh
 source gaming/install_gaming_tools.sh
+source miscellaneous/install_miscellaneous_tools.sh
 
 # Detect the current distribution
 if [ -f /etc/os-release ]; then
