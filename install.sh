@@ -5,7 +5,22 @@ source programming/install_programming_lang_packages.sh
 source gaming/install_gaming_tools.sh
 source miscellaneous/install_miscellaneous_tools.sh
 
-# Detect the current distribution
+# Function to display usage information
+usage() {
+    echo "Usage: $0 [options]"
+    echo "Options:"
+    echo "  +a, --add-all                Add all categories of tools."
+    echo "  +p, --add-programming        Add programming language-related packages."
+    echo "  +g, --add-gaming             Add gaming tools (Steam, Lutris, Wine)."
+    echo "  +m, --add-miscellaneous      Add miscellaneous tools (tree, neofetch)."
+    echo "  -a, --remove-all             Remove all categories of tools."
+    echo "  -p, --remove-programming     Remove programming language-related packages."
+    echo "  -g, --remove-gaming          Remove gaming tools (Steam, Lutris, Wine)."
+    echo "  -m, --remove-miscellaneous   Remove miscellaneous tools (tree, neofetch)."
+    echo "  -h, --help                   Display this help message."
+    exit 1
+}
+
 if [ -f /etc/os-release ]; then
     source /etc/os-release
     case $ID_LIKE in
