@@ -21,13 +21,15 @@ usage() {
     exit 1
 }
 
-if [ -f /etc/os-release ]; then
-    source /etc/os-release
-    case $ID_LIKE in
-        opensuse)
-            echo "Detected OpenSUSE distribution."
-            install_programming_lang_packages_opensuse
-            install_gaming_tools_opensuse
+# Function to detect the Linux distribution
+detect_distribution() {
+    if [ -f /etc/os-release ]; then
+        source /etc/os-release
+        DISTRIBUTION="$ID_LIKE"
+    else
+        DISTRIBUTION="unknown"
+    fi
+}
             ;;
         arch)
             echo "Detected Arch Linux distribution."
