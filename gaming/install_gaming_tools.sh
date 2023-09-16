@@ -1,6 +1,6 @@
 #!/bin/bash
 
-install_gaming_tools_packages() {
+install_gaming_tools() {
     case $1 in
         opensuse)
             echo "Detected OpenSUSE distribution."
