@@ -30,16 +30,48 @@ detect_distribution() {
         DISTRIBUTION="unknown"
     fi
 }
+
+# Function to confirm installation
+confirm_installation() {
+    echo "The following components will be installed:"
+    if [ "$INSTALL_PROGRAMMING" = true ]; then
+        echo "  -- Programming language-related packages --"
+        echo "     It will install the next packages:      "
+        echo "       c++ compiler                          "
+        echo "       ruby interpreter                      "
+        echo "       python interpreter                    "
+        echo "       Java Jre and JDK                      "
+        echo "       Prolog interpreter                    "
+    fi
+    if [ "$INSTALL_GAMING" = true ]; then
+        echo "  -- Gaming tools --  "
+        echo "     It will install: "
+        echo "       Steam          "
+        echo "       Wine           "
+        echo "       Lutris         "
+    fi
+    if [ "$INSTALL_MISC" = true ]; then
+        echo "  -- Miscellaneous tools --  "
+        echo "     It will install:        "
+        echo "       Neofetch              "
+        echo "       tree                  "
+    fi
+
+    read -p "Do you want to proceed with installation? (Type 'Yes' or 'Y' to confirm): " confirmation
+    confirmation="$(echo "$confirmation" | tr '[:upper:]' '[:lower:]')"
+    if [ "$confirmation" != "yes" ] && [ "$confirmation" != "y" ]; then
+        echo "Installation aborted."
+        exit 1
+    fi
+}
+            ;;
+        -m|--add-miscellaneous)
+            INSTALL_MISC=true
             ;;
         arch)
             echo "Detected Arch Linux distribution."
-            install_programming_lang_packages_arch
-            install_gaming_tools_arch
             ;;
         debian)
-            echo "Detected Debian distribution."
-            install_programming_lang_packages_debian
-            install_gaming_tools_debian
             ;;
         *)
             echo "Unsupported distribution detected."
@@ -49,6 +81,8 @@ detect_distribution() {
 else
     echo "Unable to detect the system's distribution."
     exit 1
+confirm_installation
+
 fi
 
 echo "Programming language-related packages and gaming tools have been installed successfully."
