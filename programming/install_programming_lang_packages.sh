@@ -12,6 +12,7 @@ install_programming_lang_packages() {
             ;;
         debian)
             echo "Detected Debian distribution."
+            install_programming_lang_packages_debian
             ;;
         *)
             echo "Unsupported distribution detected"
