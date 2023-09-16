@@ -85,10 +85,12 @@ while [[ $# -gt 0 ]]; do
         +a|--add-all)
             INSTALL_PROGRAMMING=true
             INSTALL_GAMING=true
+            INSTALL_MISC=true
             ;;
         -a|--remove-all)
             INSTALL_PROGRAMMING=false
             INSTALL_GAMING=false
+            INSTALL_MISC=false
             ;;
         +p|--add-programming)
             INSTALL_PROGRAMMING=true
