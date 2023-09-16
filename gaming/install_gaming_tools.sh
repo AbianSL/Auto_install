@@ -1,6 +1,6 @@
 #!/bin/bash
 
-install_programming_lang_packages() {
+install_gaming_tools_packages() {
     case $1 in
         opensuse)
             echo "Detected OpenSUSE distribution."
@@ -22,13 +22,13 @@ install_programming_lang_packages() {
 }
 
 install_gaming_tools_opensuse() {
-    sudo zypper install -y steam lutris wine
+    sudo zypper install steam lutris wine
 }
 
 install_gaming_tools_arch() {
-    sudo pacman -S --noconfirm steam lutris wine
+    sudo pacman -S steam lutris wine
 }
 
 install_gaming_tools_debian() {
-    sudo apt-get install -y steam lutris wine
+    sudo apt-get install steam lutris wine
 }
