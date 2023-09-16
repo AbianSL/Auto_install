@@ -5,6 +5,11 @@ source programming/install_programming_lang_packages.sh
 source gaming/install_gaming_tools.sh
 source miscellaneous/install_miscellaneous_tools.sh
 
+# Variables for options
+INSTALL_PROGRAMMING=false
+INSTALL_GAMING=false
+INSTALL_MISC=false
+
 # Function to display usage information
 usage() {
     echo "Usage: $0 [options]"
@@ -70,10 +75,6 @@ if [ $# -eq 0 ]; then
     usage
 fi
 
-# Variables for options
-INSTALL_PROGRAMMING=false
-INSTALL_GAMING=false
-INSTALL_MISC=false
 
 detect_distribution
 
