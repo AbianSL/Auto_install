@@ -105,10 +105,10 @@ while [[ $# -gt 0 ]]; do
             INSTALL_GAMING=false
             ;;
         -m|--add-miscellaneous)
-            INSTALL_MISC=true
+            INSTALL_MISC=false
             ;;
         +m|--remove-miscellaneous)
-            INSTALL_MISC=false
+            INSTALL_MISC=true
             ;;
         -h|--help)
             usage
