@@ -136,6 +136,12 @@ while [[ $# -gt 0 ]]; do
         +m|--remove-miscellaneous)
             INSTALL_MISC=true
             ;;
+        +e|--add-programming-env)
+            INSTALL_PROGRAMMING_ENV=true
+            ;;
+        -e|--remove-programming-env)
+            INSTALL_PROGRAMMING_ENV=false
+            ;;
         -h|--help)
             usage
             ;;
