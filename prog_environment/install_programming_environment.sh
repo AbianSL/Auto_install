@@ -1,7 +1,5 @@
 #!/bin/bash
 
-source ../tools.sh
-
 install_programming_environment() {
     case $1 in
         opensuse)
