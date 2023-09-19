@@ -9,6 +9,7 @@ source miscellaneous/install_miscellaneous_tools.sh
 INSTALL_PROGRAMMING=false
 INSTALL_GAMING=false
 INSTALL_MISC=false
+INSTALL_PROGRAMMING_ENV=false
 
 # Function to display usage information
 usage() {
@@ -55,6 +56,7 @@ confirm_installation() {
         echo "       Java Jre and JDK                      "
         echo "       Prolog interpreter                    "
     fi
+    
     if [ "$INSTALL_GAMING" = true ]; then
         echo "  -- Gaming tools --  "
         echo "     It will install: "
@@ -62,11 +64,25 @@ confirm_installation() {
         echo "       Wine           "
         echo "       Lutris         "
     fi
+    
     if [ "$INSTALL_MISC" = true ]; then
         echo "  -- Miscellaneous tools --  "
         echo "     It will install:        "
         echo "       Neofetch              "
         echo "       tree                  "
+    fi
+
+    if [ "$INSTALL_PROGRAMMING_ENV" = true ]; then
+        echo "  -- Programming environments --  "
+        echo "     It will install:             "
+        echo "       Visual Studio Code         "
+        echo "       Android Studio             "
+        echo "       LunarVim                   "
+    fi
+
+    if [ "$INSTALL_PROGRAMMING" = false ] && [ "$INSTALL_GAMING" = false ] && [ "$INSTALL_MISC" = false ]; then
+        echo "Nothing will be installed."
+        exit 1
     fi
 
     read -p "Do you want to proceed with installation? (Type 'Yes' or 'Y' to confirm): " confirmation
