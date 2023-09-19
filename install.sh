@@ -5,6 +5,7 @@ source programming/install_programming_lang_packages.sh
 source gaming/install_gaming_tools.sh
 source miscellaneous/install_miscellaneous_tools.sh
 source prog_environment/install_programming_environment.sh
+source tools.sh
 
 # Variables for options
 INSTALL_PROGRAMMING=false
@@ -155,7 +156,10 @@ done
 
 confirm_installation
 
+# ---------------------------------------------- #
 # Install or remove selected categories of tools
+# ---------------------------------------------- #
+
 if [ "$INSTALL_PROGRAMMING" = true ]; then
     echo "Installing programming language-related packages on $DISTRIBUTION..."
     install_programming_lang_packages $DISTRIBUTION
@@ -173,6 +177,7 @@ fi
 
 if [ "$INSTALL_PROGRAMMING_ENV" = true ]; then
     echo "Installing programming environments (VSCode, Android Studio, LunarVim) on $DISTRIBUTION..."
+    sleep 2 
     install_programming_environment $DISTRIBUTION
 fi
 
