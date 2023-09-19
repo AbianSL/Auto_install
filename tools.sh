@@ -1,7 +1,12 @@
 #!/bin/bash
 
 search_aur_manager() {
-    local aur_managers=("yay" "trizen" "paru") 
+    local aur_managers=("yay" "trizen" "paru")
+   
+    # Print a message to the user at the error output
+    echo "Searching for a AUR manager..." >&2
+    
+    sleep 1
 
     for manager in "${aur_managers[@]}"; do
         if command -v "$manager" &>/dev/null; then
@@ -10,7 +15,7 @@ search_aur_manager() {
         fi
     done
     
-    echo "No AUR manager found." >&1
+    echo "No AUR manager found." >&2
     
     sleep 1
 
