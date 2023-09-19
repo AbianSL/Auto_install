@@ -4,6 +4,7 @@
 source programming/install_programming_lang_packages.sh
 source gaming/install_gaming_tools.sh
 source miscellaneous/install_miscellaneous_tools.sh
+source prog_environment/install_programming_environment.sh
 
 # Variables for options
 INSTALL_PROGRAMMING=false
@@ -19,10 +20,12 @@ usage() {
     echo "  +p, --add-programming        Add programming language-related packages."
     echo "  +g, --add-gaming             Add gaming tools (Steam, Lutris, Wine)."
     echo "  +m, --add-miscellaneous      Add miscellaneous tools (tree, neofetch)."
+    echo "  +e, --add-programming-env    Add programming environments (VSCode, Android Studio, LunarVim)."
     echo "  -a, --remove-all             Remove all categories of tools."
     echo "  -p, --remove-programming     Remove programming language-related packages."
     echo "  -g, --remove-gaming          Remove gaming tools (Steam, Lutris, Wine)."
     echo "  -m, --remove-miscellaneous   Remove miscellaneous tools (tree, neofetch)."
+    echo "  -e, --remove-programming-env Remove programming environments (VSCode, Android Studio, LunarVim)."
     echo "  -h, --help                   Display this help message."
     exit 1
 }
@@ -160,6 +163,11 @@ fi
 if [ "$INSTALL_MISC" = true ]; then
     echo "Installing miscellaneous tools (tree, neofetch) on $DISTRIBUTION..."
     install_miscellaneous_tools $DISTRIBUTION
+fi
+
+if [ "$INSTALL_PROGRAMMING_ENV" = true ]; then
+    echo "Installing programming environments (VSCode, Android Studio, LunarVim) on $DISTRIBUTION..."
+    install_programming_environment $DISTRIBUTION
 fi
 
 echo "Installation complete."
