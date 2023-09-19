@@ -35,9 +35,10 @@ install_programming_environment_opensuse() {
 install_programming_environment_arch() {
     AUR_MANAGER="$(search_aur_manager)"
     echo "Using $AUR_MANAGER as AUR manager."
-    AUR_MANAGER -S --needed visual-studio-code-bin
+    "$AUR_MANAGER" -S --needed visual-studio-code-bin android-studio
     echo "Installing dependencies for LunarVim..."
     sudo pacman -S git make python npm node cargo rust python-pip
+    install_lunar_vim
 }
 
 install_programming_environment_debian() {
