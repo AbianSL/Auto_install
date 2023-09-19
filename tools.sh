@@ -1,7 +1,7 @@
 #!/bin/bash
 
 search_aur_manager() {
-    aur_managers=("yay" "trizen" "paru")
+    local aur_managers=("yay" "trizen" "paru")
     
     echo "Searching for a AUR manager..."
     
@@ -9,8 +9,8 @@ search_aur_manager() {
 
     for manager in "${aur_managers[@]}"; do
         if command -v "$manager" &>/dev/null; then
-            echo "Found $manager as AUR manager."
-            return $manager
+            echo "Found $manager as AUR manager."\n
+            return
         fi
     done
     
@@ -31,5 +31,6 @@ search_aur_manager() {
     sleep 1
 
     echo "Installation of yay finished."
-    return "yay"
 }
+
+AUR_MANAGER="$(search_aur_manager)"
