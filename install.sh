@@ -27,7 +27,7 @@ usage() {
 }
 
 # Function to detect the Linux distribution
-detect_package_management() {
+detect_distribution() {
     if command -v apt-get &> /dev/null 2>&1; then
       DISTRIBUTION="debian"
     elif command -v pacman &> /dev/null 2>&1; then
