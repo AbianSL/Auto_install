@@ -22,7 +22,19 @@ install_programming_lang_packages() {
 }
 
 install_programming_lang_packages_opensuse() {
-    sudo zypper install gcc-c++ make cmake ruby java python3 prolog kotlin
+    sudo zypper install gcc-c++ make cmake ruby java python3 swi-prolog
+    echo "Installing kotlin..."
+    echo "If you want to install kotlin you need to install sdkman."
+    echo "Do you want to install sdkman? (y/n)"
+    read confirmation
+    confirmation="$(echo "$confirmation" | tr '[:upper:]' '[:lower:]')"
+    if [ "$confirmation" != "yes" ] && [ "$confirmation" != "y" ]; then
+        echo "Installation aborted."
+        exit 1
+    fi
+    curl -s https://get.sdkman.io | bash
+    source "$HOME/.sdkman/bin/sdkman-init.sh"
+    sdk install kotlin
 }
 
 install_programming_lang_packages_arch() {
