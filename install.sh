@@ -27,13 +27,20 @@ usage() {
 }
 
 # Function to detect the Linux distribution
-detect_distribution() {
-    if [ -f /etc/os-release ]; then
-        source /etc/os-release
-        DISTRIBUTION="$ID_LIKE"
+detect_package_management() {
+    if command -v apt-get >/dev/null 2>&1; then
+      DISTRIBUTION="debian"
+    elif command -v pacman >/dev/null 2>&1; then
+      DISTRIBUTION="arch"
+    elif command -v dnf >/dev/null 2>&1; then
+      DISTRIBUTION="fedora"
+    elif command -v zypper >/dev/null 2>&1; then
+      DISTRIBUTION="opensuse"
     else
-        DISTRIBUTION="unknown"
-    fi
+      echo "Your distribution is not supported by this script."
+      exit 1
+    fi 
+
 }
 
 # Function to confirm installation
