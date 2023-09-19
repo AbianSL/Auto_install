@@ -27,5 +27,3 @@ search_aur_manager() {
     
     echo "yay"
 }
-
-AUR_MANAGER="$(search_aur_manager)"
