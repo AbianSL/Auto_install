@@ -83,7 +83,7 @@ confirm_installation() {
         echo "       LunarVim                   "
     fi
 
-    if [ "$INSTALL_PROGRAMMING" = false ] && [ "$INSTALL_GAMING" = false ] && [ "$INSTALL_MISC" = false ]; then
+    if [ "$INSTALL_PROGRAMMING" = false ] && [ "$INSTALL_GAMING" = false ] && [ "$INSTALL_MISC" = false ] && [ "$INSTALL_PROGRAMMING_ENV" = false ]; then
         echo "Nothing will be installed."
         exit 1
     fi
