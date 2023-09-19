@@ -28,13 +28,13 @@ usage() {
 
 # Function to detect the Linux distribution
 detect_package_management() {
-    if command -v apt-get >/dev/null 2>&1; then
+    if command -v apt-get &> /dev/null 2>&1; then
       DISTRIBUTION="debian"
-    elif command -v pacman >/dev/null 2>&1; then
+    elif command -v pacman &> /dev/null 2>&1; then
       DISTRIBUTION="arch"
-    elif command -v dnf >/dev/null 2>&1; then
+    elif command -v dnf &> /dev/null 2>&1; then
       DISTRIBUTION="fedora"
-    elif command -v zypper >/dev/null 2>&1; then
+    elif command -v zypper &> /dev/null 2>&1; then
       DISTRIBUTION="opensuse"
     else
       echo "Your distribution is not supported by this script."
