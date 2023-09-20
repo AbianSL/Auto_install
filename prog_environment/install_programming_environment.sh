@@ -40,5 +40,15 @@ install_programming_environment_arch() {
 }
 
 install_programming_environment_debian() {
-    sudo 
+    echo "To install Visual Studio Code, you'll need to install snapd."
+    read -p "Do you want to install snapd? [y/N] " answer
+    answer=$(echo "$answer" | tr '[:upper:]' '[:lower:]')
+    if [[ $answer == "y" || $answer == "yes" ]]; then
+        sudo apt install snapd
+    fi
+    sudo snap install --classic code
+
+    echo "Installing dependencies for LunarVim..."
+    sudo apt install git make python3 npm nodejs cargo rust python3-pip
+    install_lunar_vim
 }
