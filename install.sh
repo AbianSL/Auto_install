@@ -5,6 +5,7 @@ source programming/install_programming_lang_packages.sh
 source gaming/install_gaming_tools.sh
 source miscellaneous/install_miscellaneous_tools.sh
 source prog_environment/install_programming_environment.sh
+source internet/install_internet_tools.sh
 source tools.sh
 
 # Variables for options
