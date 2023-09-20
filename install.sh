@@ -206,4 +206,9 @@ if [ "$INSTALL_PROGRAMMING_ENV" = true ]; then
     install_programming_environment $DISTRIBUTION
 fi
 
+if [ "$INSTALL_INTERNET" = true ]; then
+    echo "Installing internet tools (Firefox, Chromium, Discord, Telegram) on $DISTRIBUTION..."
+    install_internet_tools $DISTRIBUTION
+fi
+
 echo "Installation complete."
