@@ -13,6 +13,7 @@ INSTALL_PROGRAMMING=false
 INSTALL_GAMING=false
 INSTALL_MISC=false
 INSTALL_PROGRAMMING_ENV=false
+INSTALL_INTERNET=false
 
 # Function to display usage information
 usage() {
@@ -89,7 +90,16 @@ confirm_installation() {
         echo "       LunarVim                   "
     fi
 
-    if [ "$INSTALL_PROGRAMMING" = false ] && [ "$INSTALL_GAMING" = false ] && [ "$INSTALL_MISC" = false ] && [ "$INSTALL_PROGRAMMING_ENV" = false ]; then
+    if [ "$INSTALL_INTERNET" = true ]; then
+        echo "  -- Internet tools --  "
+        echo "     It will install:   "
+        echo "       Firefox           "
+        echo "       Chromium          "
+        echo "       Discord           "
+        echo "       Telegram          "
+    fi
+
+    if [ "$INSTALL_PROGRAMMING" = false ] && [ "$INSTALL_GAMING" = false ] && [ "$INSTALL_MISC" = false ] && [ "$INSTALL_PROGRAMMING_ENV" = false ] && [ "$INSTALL_INTERNET" = false ] ; then
         echo "Nothing will be installed."
         exit 1
     fi
@@ -118,11 +128,15 @@ while [[ $# -gt 0 ]]; do
             INSTALL_PROGRAMMING=true
             INSTALL_GAMING=true
             INSTALL_MISC=true
+            INSTALL_PROGRAMMING_ENV=true
+            INSTALL_INTERNET=true
             ;;
         -a|--remove-all)
             INSTALL_PROGRAMMING=false
             INSTALL_GAMING=false
             INSTALL_MISC=false
+            INSTALL_PROGRAMMING_ENV=false
+            INSTALL_INTERNET=false
             ;;
         +p|--add-programming)
             INSTALL_PROGRAMMING=true
@@ -147,6 +161,12 @@ while [[ $# -gt 0 ]]; do
             ;;
         -e|--remove-programming-env)
             INSTALL_PROGRAMMING_ENV=false
+            ;;
+        +i|--add-internet)
+            INSTALL_INTERNET=true
+            ;;
+        -i|--remove-internet)
+            INSTALL_INTERNET=false
             ;;
         -h|--help)
             usage
