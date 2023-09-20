@@ -27,7 +27,19 @@ install_lunar_vim() {
 }
 
 install_programming_environment_opensuse() {
-    sudo zypp
+    echo "To install Visual Studio Code, you'll need to import the Microsoft repository."
+    read -p "Do you want to import the Microsoft repository? [y/N] " answer
+    answer=$(echo "$answer" | tr '[:upper:]' '[:lower:]')
+    if [[ $answer == "y" || $answer == "yes" ]]; then
+        sudo rpm --import https://packages.microsoft.com/keys/microsoft.asc
+        sudo zypper addrepo https://packages.microsoft.com/yumrepos/vscode vscode
+        sudo zypper refresh
+        sudo zypper install code
+    fi
+
+    echo "Installing dependencies for LunarVim..."
+    sudo zypper install git make python3 npm nodejs cargo rust python3-pip
+    install_lunar_vim
 }
 
 install_programming_environment_arch() {
