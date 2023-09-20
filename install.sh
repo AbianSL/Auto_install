@@ -23,11 +23,15 @@ usage() {
     echo "  +g, --add-gaming             Add gaming tools (Steam, Lutris, Wine)."
     echo "  +m, --add-miscellaneous      Add miscellaneous tools (tree, neofetch)."
     echo "  +e, --add-programming-env    Add programming environments (VSCode, Android Studio, LunarVim)."
+    echo "  +i, --add-internet           Add internet tools (Firefox, Chromium, Discord, Telegram)."
+    echo "--------------------------------------------------------------------------------------------------"
     echo "  -a, --remove-all             Remove all categories of tools."
     echo "  -p, --remove-programming     Remove programming language-related packages."
     echo "  -g, --remove-gaming          Remove gaming tools (Steam, Lutris, Wine)."
     echo "  -m, --remove-miscellaneous   Remove miscellaneous tools (tree, neofetch)."
     echo "  -e, --remove-programming-env Remove programming environments (VSCode, Android Studio, LunarVim)."
+    echo "  -i, --remove-internet        Remove internet tools (Firefox, Chromium, Discord, Telegram)."
+    echo "--------------------------------------------------------------------------------------------------"
     echo "  -h, --help                   Display this help message."
     exit 1
 }
