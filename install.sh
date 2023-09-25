@@ -60,7 +60,7 @@ confirm_installation() {
     if [ "$INSTALL_PROGRAMMING" = true ]; then
         echo "  -- Programming language-related packages --"
         echo "     It will install the next packages:      "
-        echo "       c++ compiler                          "
+        echo "       c++ compiler and debugger             "
         echo "       ruby interpreter                      "
         echo "       python interpreter                    "
         echo "       Java Jre and JDK                      "
