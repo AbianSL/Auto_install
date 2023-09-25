@@ -39,7 +39,17 @@ install_internet_tools_arch() {
 
 install_internet_tools_debian() {
     sudo apt update
-    sudo apt install discord firefox
+    sudo apt install firefox
+
+    read "Do you want to install snapd for install discord? (Type 'Yes' or 'Y' to confirm): " -p confirmation
+    confirmation="$(echo "$confirmation" | tr '[:upper:]' '[:lower:]')"
+    if [ "$confirmation" != "yes" ] && [ "$confirmation" != "y" ]; then
+        echo "Installation aborted."
+        exit 1
+    fi
+
+    sudo apt install snapd
+    sudo snap install discord
 
     sudo apt install curl
 
