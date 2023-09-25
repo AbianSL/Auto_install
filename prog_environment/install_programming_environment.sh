@@ -58,9 +58,8 @@ install_programming_environment_debian() {
     if [[ $answer == "y" || $answer == "yes" ]]; then
         sudo apt install snapd
     fi
-    sudo snap install --classic code
-
+    sudo snap install --classic code vim
     echo "Installing dependencies for LunarVim..."
-    sudo apt install git make python3 npm nodejs cargo rust python3-pip
+    sudo apt install curl git make python3 npm nodejs cargo python3-pip neovim
     install_lunar_vim
 }
