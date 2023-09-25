@@ -38,7 +38,7 @@ install_programming_environment_opensuse() {
     fi
 
     echo "Installing dependencies for LunarVim..."
-    sudo zypper install git make python3 npm nodejs cargo rust python3-pip
+    sudo zypper install git make python npm14 nodejs14 cargo rust python3-pip
     install_lunar_vim
 }
 

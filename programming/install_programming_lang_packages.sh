@@ -22,7 +22,7 @@ install_programming_lang_packages() {
 }
 
 install_programming_lang_packages_opensuse() {
-    sudo zypper install gcc-c++ make cmake ruby java python3 swi-prolog gdb
+    sudo zypper install gcc-c++ make cmake ruby java python swi-prolog gdb
     echo "Installing kotlin..."
     echo "If you want to install kotlin you need to install sdkman."
     echo "Do you want to install sdkman? (y/n)"
