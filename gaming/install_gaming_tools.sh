@@ -30,7 +30,7 @@ install_gaming_tools_arch() {
 }
 
 install_gaming_tools_debian() {
-    sudo apt-get install steam lutris wine
+    sudo apt-get install wine
     echo "To install steam, you need to enable the multiverse repository."
     read echo "Do you want to enable it now? (y/n)" -p confirmation
     confirmation="${echo $confirmation | tr '[:upper:]' '[:lower:]'}"
@@ -40,4 +40,8 @@ install_gaming_tools_debian() {
         sudo apt-get upgrade
         sudo apt-get install steam steam-installer
     fi
+    sudo apt-get install curl
+    wget https://github.com/lutris/lutris/releases/download/v0.5.13/lutris_0.5.13_all.deb
+    chmod u+x lutris_0.5.13_all.deb
+    ./lutris_0.5.13_all.deb
 }
