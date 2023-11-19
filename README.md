@@ -10,11 +10,11 @@ Of course +a will install all of the next programs.
 
 ## Index
 
-- [Programming language](## Programming language)
-- [Gaming tools](## Gaming tools)
-- [Miscellaneous tools](## Miscellaneous tools)
-- [Programming envieroment](## Programming envieroment)
-- [Internet tools](## Internet tools)
+- [Programming language](#programming-language)
+- [Gaming tools](#gaming-tools)
+- [Miscellaneous tools](#miscellaneous-tools)
+- [Programming envieroment](#programming-envieroment)
+- [Internet tools](#internet-tools)
 
 ---
 
