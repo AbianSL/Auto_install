@@ -26,14 +26,22 @@ install_gaming_tools_opensuse() {
 }
 
 install_gaming_tools_arch() {
-    sudo pacman -S steam lutris wine
+    echo "For Installing Steam and wine, you need to enable the multilib repository."
+    read -p "Do you want to enable it now? (y/n)" confirmation
+    confirmation="$(echo "$confirmation" | tr '[:upper:]' '[:lower:]')"
+    if [ $confirmation == "y" ]; then
+        sudo cp multilib_enable.txt /etc/pacman.conf
+        sudo pacman -Syu
+        sudo pacman -S wine steam
+    fi
+    sudo pacman -S lutris
 }
 
 install_gaming_tools_debian() {
     sudo apt-get install wine
     echo "To install steam, you need to enable the multiverse repository."
-    read echo "Do you want to enable it now? (y/n)" -p confirmation
-    confirmation="${echo $confirmation | tr '[:upper:]' '[:lower:]'}"
+    read -p "Do you want to enable it now? (y/n)" confirmation
+    confirmation="$(echo $confirmation | tr '[:upper:]' '[:lower:]')"
     if [ $confirmation == "y" ]; then
         sudo add-apt-repository multiverse
         sudo apt-get update
