@@ -39,7 +39,7 @@ install_internet_tools_arch() {
 
 install_internet_tools_debian() {
     sudo apt update
-    sudo apt install firefox
+    sudo apt install firefox telegram-desktop
 
     read "Do you want to install snapd for install discord? (Type 'Yes' or 'Y' to confirm): " -p confirmation
     confirmation="$(echo "$confirmation" | tr '[:upper:]' '[:lower:]')"
