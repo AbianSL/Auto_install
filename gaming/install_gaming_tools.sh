@@ -48,8 +48,8 @@ install_gaming_tools_debian() {
         sudo apt-get upgrade
         sudo apt-get install steam steam-installer
     fi
-    sudo apt-get install curl
-    wget https://github.com/lutris/lutris/releases/download/v0.5.13/lutris_0.5.13_all.deb
-    chmod u+x lutris_0.5.13_all.deb
-    ./lutris_0.5.13_all.deb
+    echo "deb [signed-by=/etc/apt/keyrings/lutris.gpg] https://download.opensuse.org/repositories/home:/strycore/Debian_12/ ./" | sudo tee /etc/apt/sources.list.d/lutris.list > /dev/null
+    wget -q -O- https://download.opensuse.org/repositories/home:/strycore/Debian_12/Release.key | gpg --dearmor | sudo tee /etc/apt/keyrings/lutris.gpg > /dev/null
+    sudo apt update
+    sudo apt install lutris
 }
