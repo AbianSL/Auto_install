@@ -46,7 +46,7 @@ install_programming_environment_arch() {
     AUR_MANAGER="$(search_aur_manager)"
     $AUR_MANAGER -S visual-studio-code-bin android-studio
     echo "Installing dependencies for LunarVim..."
-    sudo pacman -S git make python npm nodejs cargo rust python-pip
+    sudo pacman -S git make python npm nodejs cargo rust python-pip neovim
     sleep 1
     install_lunar_vim
 }

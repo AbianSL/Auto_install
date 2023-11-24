@@ -22,12 +22,12 @@ install_internet_tools() {
 }
 
 install_internet_tools_opensuse() {
-    sudo zypper install discord firefox brave 
+    sudo zypper install discord firefox brave
 }
 
 install_internet_tools_arch() {
     sudo pacman -S firefox discord
-    echo "For installing you should install a AUR"
+    echo "For installing brave you should install a AUR"
     echo "It will install Yay"
     read -p "Do you want to proceed with installation? (Type 'Yes' or 'Y' to confirm): " confirmation
     confirmation="$(echo "$confirmation" | tr '[:upper:]' '[:lower:]')"
@@ -35,6 +35,8 @@ install_internet_tools_arch() {
         echo "Installation aborted."
         exit 1
     fi
+    suddo pacman -S yay
+    yay -S brave
 }
 
 install_internet_tools_debian() {
