@@ -24,6 +24,7 @@ install_programming_environment() {
 install_lunar_vim() {
     echo "Installing LunarVim..."
     LV_BRANCH='release-1.3/neovim-0.9' bash <(curl -s https://raw.githubusercontent.com/LunarVim/LunarVim/release-1.3/neovim-0.9/utils/installer/install.sh)
+    sudo cp ~/.local/bin/lvim /usr/bin/
 }
 
 install_programming_environment_opensuse() {
